@@ -56,7 +56,7 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// Form handling with EmailJS
+// Form handling with EmailJS and Auto-Reply
 document
   .getElementById("contact-form")
   .addEventListener("submit", function (event) {
@@ -81,8 +81,8 @@ document
       requests: document.getElementById("requests").value || "None",
     };
 
-    // Email template parameters
-    const templateParams = {
+    // Email template parameters for business notification
+    const businessEmailParams = {
       from_name: formData.name,
       from_email: formData.email,
       phone: formData.phone,
@@ -92,23 +92,61 @@ document
       to_email: "contact@lightpackadventures.com", // Your business email
     };
 
-    // Send email via EmailJS
+    // Auto-reply template parameters for customer
+    const autoReplyParams = {
+      to_name: formData.name,
+      to_email: formData.email,
+      customer_route: formData.route,
+      customer_weight: formData.weight + " kg",
+      customer_phone: formData.phone,
+      customer_requests: formData.requests,
+    };
+
+    // Send business notification email first
     emailjs
-      .send("service_miomecn", "template_contact", templateParams)
+      .send("service_miomecn", "template_contact", businessEmailParams)
       .then(function (response) {
-        console.log("SUCCESS!", response.status, response.text);
+        console.log(
+          "Business notification sent successfully!",
+          response.status,
+          response.text,
+        );
+
+        // Send auto-reply to customer
+        return emailjs.send(
+          "service_miomecn",
+          "template_autoreply",
+          autoReplyParams,
+        );
+      })
+      .then(function (response) {
+        console.log(
+          "Auto-reply sent successfully!",
+          response.status,
+          response.text,
+        );
         showFormStatus(
           "success",
-          "✓ Thank you! Your inquiry has been sent successfully. We'll get back to you within 48 hours.",
+          "✓ Thank you! Your inquiry has been sent successfully. Check your email for a confirmation and we'll get back to you within 48 hours with a detailed quote.",
         );
         form.reset();
       })
       .catch(function (error) {
-        console.log("FAILED...", error);
-        showFormStatus(
-          "error",
-          "✗ Sorry, there was an error sending your message. Please try again or contact us directly at contact@lightpackadventures.com",
-        );
+        console.log("Email sending failed...", error);
+
+        // Try to send at least the business notification if auto-reply fails
+        if (error.text && error.text.includes("auto-reply")) {
+          showFormStatus(
+            "success",
+            "✓ Your inquiry has been sent successfully! We'll get back to you within 48 hours. (Note: Confirmation email may be delayed)",
+          );
+          form.reset();
+        } else {
+          showFormStatus(
+            "error",
+            "✗ Sorry, there was an error sending your message. Please try again or contact us directly at contact@lightpackadventures.com or +40 711 545 03",
+          );
+        }
       })
       .finally(function () {
         // Reset button state
@@ -124,11 +162,11 @@ function showFormStatus(type, message) {
   formStatus.textContent = message;
   formStatus.style.display = "block";
 
-  // Auto-hide success messages after 5 seconds
+  // Auto-hide success messages after 8 seconds (longer for auto-reply confirmation)
   if (type === "success") {
     setTimeout(() => {
       formStatus.style.display = "none";
-    }, 5000);
+    }, 8000);
   }
 }
 
@@ -218,7 +256,7 @@ console.log(
   "🏔️ LightPack Carpathian Adventures - Website loaded successfully!",
 );
 console.log(
-  "📧 Don't forget to set up your EmailJS configuration in script.js",
+  "🔄 Auto-reply functionality enabled - remember to create both email templates",
 );
 
 // Performance monitoring (optional)
