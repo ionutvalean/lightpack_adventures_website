@@ -13,6 +13,86 @@
             content="Carpathians, hiking, porter, mountain logistics, Sibiu, Romania, gear transport"
         />
 
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:title"
+            content="LightPack Carpathian Adventures - Carry Less. Live More."
+        />
+        <meta
+            property="og:description"
+            content="Mountain porter and logistics services in the Carpathians. We transport your gear so you can enjoy the trail without the weight."
+        />
+        <meta
+            property="og:image"
+            content="https://lightpackadventures.com/static/images/from_to.webp"
+        />
+        <meta property="og:url" content="https://lightpackadventures.com" />
+        <meta
+            property="og:site_name"
+            content="LightPack Carpathian Adventures"
+        />
+        <meta property="og:locale" content="en_US" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="LightPack Carpathian Adventures - Carry Less. Live More."
+        />
+        <meta
+            name="twitter:description"
+            content="Mountain porter and logistics services in the Carpathians. We transport your gear so you can enjoy the trail without the weight."
+        />
+        <meta
+            name="twitter:image"
+            content="https://lightpackadventures.com/static/images/from_to.webp"
+        />
+
+        <!-- Additional SEO -->
+        <meta name="author" content="LightPack Carpathian Adventures" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://lightpackadventures.com" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="static/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="static/favicon.svg" />
+
+        <!-- Preconnect hints for external resources -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+        <!-- Google Analytics 4 -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4RP7Z99MQH"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            // Privacy-first implementation
+            gtag("js", new Date());
+            gtag("consent", "default", {
+                analytics_storage: "granted",
+                ad_storage: "denied",
+                functionality_storage: "granted",
+                personalization_storage: "denied",
+                security_storage: "granted",
+            });
+
+            gtag("config", "G-4RP7Z99MQH", {
+                anonymize_ip: true,
+                allow_google_signals: false,
+                allow_ad_personalization_signals: false,
+                cookie_flags: "SameSite=None;Secure",
+            });
+        </script>
+
         <!-- Fonts -->
         <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;500;600&display=swap"
@@ -27,6 +107,66 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="static/css/style.css" />
+
+        <!-- Structured Data (Schema.org) -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "LightPack Carpathian Adventures",
+                "description": "Mountain porter and logistics services in the Carpathians. We transport your gear so you can enjoy the trail without the weight.",
+                "image": "https://lightpackadventures.com/static/images/logo.png",
+                "telephone": "+40 711 545 03",
+                "email": "contact@lightpackadventures.com",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Sibiu",
+                    "addressCountry": "Romania"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "45.7983",
+                    "longitude": "24.1256"
+                },
+                "url": "https://lightpackadventures.com",
+                "priceRange": "$$",
+                "serviceArea": {
+                    "@type": "Place",
+                    "name": "Carpathian Mountains"
+                },
+                "sameAs": [],
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Mountain Porter Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Gear Drops & Resupply",
+                                "description": "We bring gear like tents, sleeping bags, food, water at agreed checkpoints."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Porter Support",
+                                "description": "Experienced mountain porters carry heavy loads across trails."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Logistics Support",
+                                "description": "On and off-road logistics for mountain adventures."
+                            }
+                        }
+                    ]
+                }
+            }
+        </script>
     </head>
     <body>
         <!-- Navigation -->
@@ -38,13 +178,15 @@
                     >
                     <ul class="nav-menu" id="nav-menu">
                         <li><a onclick="showPage('home')">Home</a></li>
-                        <li><a onclick="showPage('about')">About</a></li>
-                        <li><a onclick="showPage('services')">Services</a></li>
+                        <li>
+                            <a onclick="showPage('services')">The services</a>
+                        </li>
                         <li>
                             <a onclick="showPage('plan')"
                                 >Plan Your Adventure</a
                             >
                         </li>
+                        <li><a onclick="showPage('about')">About Us</a></li>
                         <li><a onclick="showPage('blog')">Blog</a></li>
                         <li><a onclick="showPage('contact')">Contact</a></li>
                     </ul>
@@ -61,11 +203,20 @@
             <section class="hero">
                 <div class="hero-content">
                     <h1>Carry Less. Live More.</h1>
+                    <h2>
+                        We assist your adventures: LightPack, heavy memories
+                    </h2>
+                    <br />
+                    <br />
                     <p>
                         From Sibiu to the high ridges of the Carpathians, we
-                        transport your gear so you can enjoy the climb, the
+                        transport what you need so you can enjoy the climb, the
                         view, and the freedom of the trail — without the weight
                         on your back.
+                    </p>
+                    <p>
+                        Rediscover the Carpathian Mountains in comfort, with
+                        less weight, more joy, and unforgettable moments.
                     </p>
                     <a href="#" class="btn" onclick="showPage('contact')"
                         >Plan Your Adventure</a
@@ -84,39 +235,6 @@
                                 Our 2022 Făgăraș Ridge trip inspired LightPack.
                                 We know the strain of heavy packs and the joy of
                                 moving light.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Services Overview -->
-            <section class="services-overview section">
-                <div class="container">
-                    <h2 class="text-center">What We Do</h2>
-                    <div class="services-grid">
-                        <div class="service-card">
-                            <div class="service-card-image"></div>
-                            <h3>Gear Drops & Resupply</h3>
-                            <p>
-                                We place tents, food, water and sleeping gear at
-                                agreed locations and times.
-                            </p>
-                        </div>
-                        <div class="service-card">
-                            <div class="service-card-image"></div>
-                            <h3>Porter Support</h3>
-                            <p>
-                                Experienced porters carry heavy loads across
-                                steep alpine trails so you can move lighter.
-                            </p>
-                        </div>
-                        <div class="service-card">
-                            <div class="service-card-image"></div>
-                            <h3>ATV & Off-road Logistics</h3>
-                            <p>
-                                Where tracks allow, we use ATVs to shorten
-                                approach times and reach deeper valleys.
                             </p>
                         </div>
                     </div>
@@ -169,6 +287,23 @@
 
             <section class="section">
                 <div class="container">
+                    <h2>The Idea</h2>
+                    <p>
+                        Our 2022 Făgăraș Ridge trip, along with many other
+                        family trips, inspired us to help hikers explore the
+                        Carpathians with less load and more freedom. We believe
+                        the mountains should be enjoyed — not suffered through
+                        under the weight of the gear needed at the end of the
+                        day. It is comforting to know that after a long day of
+                        hiking, you can relax in your own tent, with a hot meal
+                        and a beverage of choice that you did not have to carry
+                        the entire way.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
                     <h2>Our Mission</h2>
                     <p>
                         LightPack Carpathian Adventures exists to make multi-day
@@ -186,20 +321,20 @@
                         <div class="team-member">
                             <div class="team-image"></div>
                             <h3>Founder</h3>
-                            <h4>Co-founder & Lead Porter</h4>
                             <p>
-                                Mountain guide, longtime Carpathian explorer,
-                                father and tester of this service.
+                                Mountain enthusiast, father and tester of this
+                                service.
                             </p>
+                            <p>Handles customer interactions, planning.</p>
                         </div>
                         <div class="team-member">
                             <div class="team-image"></div>
                             <h3>Co-founder</h3>
-                            <h4>Logistics & Operations</h4>
                             <p>
-                                Handles planning, scheduling, and vehicle
-                                coordination from Sibiu.
+                                Mountain enthusiast, mother, tester of this
+                                service.
                             </p>
+                            <p>Handles customer interactions, scheduling.</p>
                         </div>
                     </div>
                 </div>
@@ -210,7 +345,7 @@
         <div id="services" class="page">
             <section class="hero-small">
                 <div class="container">
-                    <h1>Serious Support for Serious Adventures</h1>
+                    <h1>Serious Support for all your Adventures</h1>
                     <p>
                         Custom logistics, skilled porters, and careful planning
                         for mountain expeditions.
@@ -218,31 +353,95 @@
                 </div>
             </section>
 
-            <section class="section">
+            <!-- Services Overview -->
+            <section class="services-overview section">
                 <div class="container">
+                    <h2 class="text-center">How It Works</h2>
+                    <h2>
+                        More than a service — it’s a partnership in the wild.
+                    </h2>
+                    <p>
+                        Every trip we support is unique. There’s no
+                        one-size-fits-all price list, because each route,
+                        drop-off point, and timing depends on your adventure’s
+                        exact needs. Before we set foot (or wheel) on the trail,
+                        we’ll talk through:
+                    </p>
                     <div class="services-grid">
-                        <div class="service-card">
-                            <h3>Gear Drops & Resupply</h3>
+                        <div class="service-card route-planning">
+                            <div class="service-card-image"></div>
+                            <h3>Your route</h3>
                             <p>
-                                We place tents, sleeping bags, food, and water
-                                at agreed checkpoints.
+                                We’ll help identify the best drop-off and
+                                pick-up points in the Carpathians or wherever
+                                your adventure takes you.
                             </p>
                         </div>
-                        <div class="service-card">
+                        <div class="service-card gear-management">
+                            <div class="service-card-image"></div>
+                            <h3>Your gear</h3>
+                            <p>
+                                We’ll confirm what you need carried, and how to
+                                pack it for the trail.
+                            </p>
+                        </div>
+                        <div class="service-card timing-coordination">
+                            <div class="service-card-image"></div>
+                            <h3>Your timing</h3>
+                            <p>
+                                We’ll align on exact delivery and pick-up
+                                windows so you can rely on us, even deep in the
+                                mountains.
+                            </p>
+                        </div>
+                        <div class="service-card pack-light">
+                            <div class="service-card-image"></div>
+                            <h3>Pack Light</h3>
+                            <p>
+                                You carry essentials, needed for the day; we
+                                bring the rest.
+                            </p>
+                        </div>
+                        <div class="service-card adventure-fully">
+                            <div class="service-card-image"></div>
+                            <h3>Adventure Fully</h3>
+                            <p>
+                                Arrive to find gear, food, and comfort waiting
+                                for you, just as we planned.
+                            </p>
+                        </div>
+
+                        <div class="service-card gear-drops">
+                            <div class="service-card-image"></div>
+                            <h3>Gear Drops & Resupply</h3>
+                            <p>
+                                We bring gear like tents, sleeping bags, food,
+                                water at agreed checkpoints.
+                            </p>
+                        </div>
+                        <div class="service-card porter-support">
+                            <div class="service-card-image"></div>
                             <h3>Porter Support</h3>
                             <p>
                                 Experienced mountain porters carry heavy loads
-                                across steep trails.
+                                across trails to ensure that you have what you
+                                need when you need it.
                             </p>
                         </div>
-                        <div class="service-card">
-                            <h3>ATV & Off-road Logistics</h3>
+                        <div class="service-card logistics-support">
+                            <div class="service-card-image"></div>
+                            <h3>On and Off-road Logistics</h3>
                             <p>
-                                When tracks allow, we use ATVs to access remote
-                                points.
+                                We take care of all logistics to ensure that
+                                everything you need is available when we agree.
+                                Our team will work with you to plan and execute
+                                your logistics needs, from transportation to
+                                storage, to ensure that you have everything you
+                                need to succeed.
                             </p>
                         </div>
-                        <div class="service-card">
+                        <div class="service-card overnight-support">
+                            <div class="service-card-image"></div>
                             <h3>Overnight Support</h3>
                             <p>
                                 If timing requires, our staff can wait overnight
@@ -253,72 +452,27 @@
                 </div>
             </section>
 
+            <section class="section">
+                <div class="container">
+                    <p class="important">
+                        We know that your journey depends on having the right
+                        gear in the right place at the right time. That’s why
+                        building trust with every client is critical. You need
+                        to be certain that when you arrive, we’ll be there — no
+                        excuses.
+                    </p>
+                </div>
+            </section>
+
             <section class="section" style="background: var(--light-gray)">
                 <div class="container">
                     <h2>Custom Pricing — Transparent Components</h2>
                     <p class="mb-3">
                         Every trip is custom. Pricing depends on: number of
                         days, elevation & distance to drop points, load weight,
-                        number of porters required, ATV usage, and overnight
-                        staffing. Below are indicative rate components we use to
-                        build a custom quote.
+                        number of porters required, vehicle usage, and overnight
+                        staffing.
                     </p>
-
-                    <div class="pricing-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Item</th>
-                                    <th>Unit</th>
-                                    <th>Rate (EUR)</th>
-                                    <th>Notes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Base setup & planning fee</td>
-                                    <td>Per trip</td>
-                                    <td>50</td>
-                                    <td>Route planning and coordination</td>
-                                </tr>
-                                <tr>
-                                    <td>Per porter/day</td>
-                                    <td>Per person/day</td>
-                                    <td>150</td>
-                                    <td>
-                                        Includes up to 15 kg; 9 km & 1000 m gain
-                                        typical
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Weight surcharge</td>
-                                    <td>Per extra kg</td>
-                                    <td>5</td>
-                                    <td>Above 15 kg</td>
-                                </tr>
-                                <tr>
-                                    <td>ATV transport add-on</td>
-                                    <td>Per day</td>
-                                    <td>80</td>
-                                    <td>If ATV access is possible</td>
-                                </tr>
-                                <tr>
-                                    <td>Overnight wait fee</td>
-                                    <td>Per night</td>
-                                    <td>60</td>
-                                    <td>If staff must stay overnight</td>
-                                </tr>
-                                <tr>
-                                    <td>Return pickup</td>
-                                    <td>Per trip</td>
-                                    <td>70</td>
-                                    <td>
-                                        Pickup and return of equipment to base
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </section>
         </div>
@@ -338,15 +492,21 @@
             <section class="section">
                 <div class="container">
                     <h2>A Trust-First Process</h2>
-                    <p class="mb-3">
-                        Before we move any equipment, we'll have a detailed
-                        conversation: your route, the best drop-off points, the
-                        equipment list, and timing windows. We agree on
-                        responsibilities and sign an easy service agreement. Our
-                        goal is simple: you must arrive knowing your gear will
-                        be where you expect it.
-                    </p>
+                    <div>
+                        <p class="mb-3">
+                            Before we move any equipment, we'll have a detailed
+                            conversation: your route, the best drop-off points,
+                            the equipment list, and timing windows. We agree on
+                            responsibilities and sign an easy service agreement.
+                        </p>
+                        <p>
+                            Our goal is simple: you must arrive knowing your
+                            gear will be where you expect it.
+                        </p>
+                    </div>
 
+                    <br />
+                    <br />
                     <div class="text-center">
                         <p class="mb-2">
                             Ready to start planning? Let's talk through your
@@ -384,7 +544,13 @@
                             Carpathian Adventures. Read about our journey from
                             carrying heavy packs to helping others travel light.
                         </p>
-                        <a href="#" class="btn">Read More</a>
+                        <a
+                            id="blogPost"
+                            href="#"
+                            class="btn"
+                            title="Comming soon"
+                            >Read More</a
+                        >
                     </div>
                 </div>
             </section>
@@ -396,7 +562,8 @@
                 <div class="container">
                     <h1>Get in Touch</h1>
                     <p>
-                        Tell us about your route, dates and needs — we'll get
+                        Tell us about your route, dates and needs,
+                        <b>we would love to hear them</b>. After that we'll get
                         back with a plan and quote.
                     </p>
                 </div>
@@ -475,8 +642,28 @@
                             <h3>Base of Operations</h3>
                             <div class="contact-details">
                                 <p><strong>Sibiu, Romania</strong></p>
-                                <p>📞 +40 711 545 03</p>
-                                <p>✉️ contact@lightpackadventures.com</p>
+                                <p>
+                                    📞
+                                    <a
+                                        href="tel:+40711545003"
+                                        style="
+                                            color: var(--primary);
+                                            text-decoration: none;
+                                        "
+                                        >+40 711 545 03</a
+                                    >
+                                </p>
+                                <p>
+                                    ✉️
+                                    <a
+                                        href="mailto:contact@lightpackadventures.com"
+                                        style="
+                                            color: var(--primary);
+                                            text-decoration: none;
+                                        "
+                                        >contact@lightpackadventures.com</a
+                                    >
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -484,12 +671,78 @@
             </section>
         </div>
 
+        <!-- Cookie Notice for GDPR Compliance -->
+        <div id="cookie-notice" class="cookie-notice" style="display: none">
+            <div class="cookie-content">
+                <p>
+                    <strong>🍪 We use cookies</strong><br />
+                    We use Google Analytics to understand how visitors use our
+                    site. This helps us improve your experience. You can opt out
+                    anytime.
+                </p>
+                <div class="cookie-buttons">
+                    <button onclick="acceptCookies()" class="btn cookie-accept">
+                        Accept
+                    </button>
+                    <button
+                        onclick="declineCookies()"
+                        class="btn cookie-decline"
+                    >
+                        Decline
+                    </button>
+                    <button
+                        onclick="showCookieSettings()"
+                        class="cookie-settings"
+                    >
+                        Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cookie Settings Modal -->
+        <div id="cookie-settings" class="cookie-modal" style="display: none">
+            <div class="cookie-modal-content">
+                <h3>Cookie Settings</h3>
+                <div class="cookie-category">
+                    <label>
+                        <input type="checkbox" checked disabled />
+                        <strong>Essential Cookies</strong> (Required)
+                    </label>
+                    <p>
+                        These cookies are necessary for the website to function.
+                    </p>
+                </div>
+                <div class="cookie-category">
+                    <label>
+                        <input type="checkbox" id="analytics-cookies" />
+                        <strong>Analytics Cookies</strong>
+                    </label>
+                    <p>
+                        Help us understand how visitors interact with our
+                        website.
+                    </p>
+                </div>
+                <div class="cookie-buttons">
+                    <button onclick="saveSettings()" class="btn">
+                        Save Settings
+                    </button>
+                    <button
+                        onclick="closeCookieSettings()"
+                        class="cookie-close"
+                    >
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
                 <p>
-                    &copy; 2024 LightPack Carpathian Adventures. All rights
-                    reserved.
+                    <b>&copy; 2025 LightPack Carpathian Adventures</b>. All
+                    rights reserved.
                 </p>
             </div>
         </footer>
