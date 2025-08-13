@@ -4,7 +4,7 @@
 
 A modern, responsive website for LightPack Carpathian Adventures, a mountain logistics company based in Sibiu, Romania, that provides gear transport and porter services for hikers exploring the Carpathian Mountains.
 
-![Website Preview](static/images/from_to.webp)
+![Website Preview](static/images/main_picture.webp)
 
 ## 🏔️ About LightPack Carpathian Adventures
 
@@ -88,7 +88,7 @@ The website includes a fully functional contact form powered by EmailJS. To set 
 3. Create an email template for inquiries
 4. Update the JavaScript configuration with your:
    - Public Key
-   - Service ID  
+   - Service ID
    - Template ID
 
 Detailed instructions are available in `static/setup-instructions.md`.
@@ -140,7 +140,7 @@ Replace placeholder images in the `static/images/` directory with your own photo
 
 - **Meta Tags**: Complete title, description, and keyword tags
 - **Open Graph**: Facebook and social media sharing optimization
-- **Twitter Cards**: Twitter sharing optimization  
+- **Twitter Cards**: Twitter sharing optimization
 - **Structured Data**: JSON-LD schema for local business
 - **Sitemap Ready**: Clean URLs with anchor navigation
 - **Mobile Friendly**: Responsive design with proper viewport meta tag
