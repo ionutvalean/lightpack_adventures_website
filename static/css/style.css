@@ -151,9 +151,10 @@ h6 {
     height: 100vh;
     background:
         linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23658B73" width="1200" height="800"/><polygon fill="%234A6B56" points="0,800 400,400 800,600 1200,200 1200,800"/><polygon fill="%237A9B7A" points="200,800 600,300 1000,500 1200,100 1200,800"/></svg>');
+        url("../images/main_picture.webp");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,18 +162,32 @@ h6 {
     color: var(--white);
 }
 
+.hero-content {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    /*backdrop-filter: blur(2px);*/
+    max-width: 800px;
+}
+
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
     font-size: 1.25rem;
     margin-bottom: 2rem;
-    max-width: 600px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
@@ -306,24 +321,18 @@ h6 {
 }
 
 /* SVG Icons for Service Cards */
-.route-planning .service-card-image::before {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='white'%3E%3Cpath d='M8 12l8-8h32l8 8v32l-8 8H16l-8-8V12z'/%3E%3Cpath d='M16 20l16 12 16-12M32 32v20' stroke='%23E5E2DD' stroke-width='3' fill='none'/%3E%3C/svg%3E");
-    width: 80px;
-    height: 80px;
-    background-size: contain;
-    background-repeat: no-repeat;
+.route-planning .service-card-image {
+    background: url("../images/the_route.webp");
+    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
-.gear-management .service-card-image::before {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='white'%3E%3Cpath d='M16 8h32c4 0 8 4 8 8v32c0 4-4 8-8 8H16c-4 0-8-4-8-8V16c0-4 4-8 8-8z'/%3E%3Cpath d='M20 20h24v8H20zM20 36h24v8H20z' fill='%23E5E2DD'/%3E%3Cpath d='M12 32h40M32 8v48' stroke='%23E5E2DD' stroke-width='2'/%3E%3C/svg%3E");
-    width: 80px;
-    height: 80px;
-    background-size: contain;
-    background-repeat: no-repeat;
+.gear-management .service-card-image {
+    background: url("../images/the_gear.webp");
+    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .timing-coordination .service-card-image::before {
@@ -346,14 +355,11 @@ h6 {
     background-position: center;
 }
 
-.adventure-fully .service-card-image::before {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='white'%3E%3Cpath d='M8 48l8-16 8 8 8-12 8 8 8-12 8 8 8-16v20c0 4-4 8-8 8H16c-4 0-8-4-8-8v-8z'/%3E%3Cpath d='M16 24l8-8 8 4 8-8 8 4 8-8' stroke='%23E5E2DD' stroke-width='3' fill='none'/%3E%3Ccircle cx='48' cy='16' r='8' fill='%23FFD700'/%3E%3C/svg%3E");
-    width: 80px;
-    height: 80px;
-    background-size: contain;
-    background-repeat: no-repeat;
+.adventure-fully .service-card-image {
+    background: url("../images/mountain_flowers.webp");
+    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .gear-drops .service-card-image::before {
@@ -641,6 +647,11 @@ main {
         display: flex;
     }
 
+    .hero-content {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
@@ -682,6 +693,11 @@ main {
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
+    }
+
+    .hero-content {
+        padding: 1.5rem 1rem;
+        margin: 0 0.5rem;
     }
 
     .hero-content h1 {
