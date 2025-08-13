@@ -123,6 +123,13 @@ h6 {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+.nav-menu a.nav-active,
+.logo.nav-active {
+    color: var(--neutral);
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+}
+
 .mobile-menu {
     display: none;
     color: var(--white);

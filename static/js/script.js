@@ -28,11 +28,16 @@ window.addEventListener("scroll", function () {
 });
 
 // Page navigation
-function showPage(pageId) {
+function showPage(pageId, updateHistory = true) {
+  // Update URL hash if requested
+  if (updateHistory && window.location.hash !== "#" + pageId) {
+    window.location.hash = pageId;
+  }
+
   // Track page navigation
   trackEvent("page_view", {
     page_title: pageId,
-    page_location: window.location.href + "#" + pageId,
+    page_location: window.location.href,
   });
 
   // Hide all pages
@@ -41,13 +46,18 @@ function showPage(pageId) {
 
   // Show selected page
   const targetPage = document.getElementById(pageId);
-  targetPage.classList.add("active");
-  targetPage.classList.add("fade-in");
+  if (targetPage) {
+    targetPage.classList.add("active");
+    targetPage.classList.add("fade-in");
 
-  // Remove animation class after animation completes
-  setTimeout(() => {
-    targetPage.classList.remove("fade-in");
-  }, 500);
+    // Remove animation class after animation completes
+    setTimeout(() => {
+      targetPage.classList.remove("fade-in");
+    }, 500);
+  }
+
+  // Update active navigation state
+  updateActiveNavigation(pageId);
 
   // Scroll to top
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -56,6 +66,36 @@ function showPage(pageId) {
   const navMenu = document.getElementById("nav-menu");
   navMenu.classList.remove("active");
 }
+
+// Update active navigation state
+function updateActiveNavigation(pageId) {
+  // Remove active class from all navigation links
+  const navLinks = document.querySelectorAll(".nav-menu a");
+  navLinks.forEach((link) => link.classList.remove("nav-active"));
+
+  // Add active class to current page link (only in nav menu)
+  const activeLink = document.querySelector(`.nav-menu a[href="#${pageId}"]`);
+  if (activeLink) {
+    activeLink.classList.add("nav-active");
+  }
+}
+
+// Function to load page based on URL hash
+function loadPageFromHash() {
+  const hash = window.location.hash.substring(1); // Remove the '#'
+  const validPages = ["home", "services", "plan", "about", "blog", "contact"];
+
+  if (hash && validPages.includes(hash)) {
+    showPage(hash, false); // Don't update history when loading from hash
+  } else {
+    showPage("home", false); // Default to home page
+  }
+}
+
+// Handle browser back/forward navigation
+window.addEventListener("hashchange", function () {
+  loadPageFromHash();
+});
 
 // Mobile menu toggle
 function toggleMobileMenu() {
@@ -595,6 +635,32 @@ function saveSettings() {
 
 // Initialize cookie notice on page load
 document.addEventListener("DOMContentLoaded", function () {
+  // Load the correct page based on URL hash
+  loadPageFromHash();
+
+  // Handle navigation link clicks
+  const navLinks = document.querySelectorAll('a[href^="#"]');
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (href && href.startsWith("#") && href.length > 1) {
+        const pageId = href.substring(1);
+        const validPages = [
+          "home",
+          "services",
+          "plan",
+          "about",
+          "blog",
+          "contact",
+        ];
+        if (validPages.includes(pageId)) {
+          e.preventDefault();
+          showPage(pageId);
+        }
+      }
+    });
+  });
+
   // Show cookie notice after a short delay
   setTimeout(showCookieNotice, 2000);
 

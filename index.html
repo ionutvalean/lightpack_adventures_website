@@ -173,22 +173,36 @@
         <nav class="navbar" id="navbar">
             <div class="container">
                 <div class="nav-container">
-                    <a href="#" class="logo" onclick="showPage('home')"
+                    <a href="#home" class="logo" onclick="showPage('home')"
                         >LightPack</a
                     >
                     <ul class="nav-menu" id="nav-menu">
-                        <li><a onclick="showPage('home')">Home</a></li>
                         <li>
-                            <a onclick="showPage('services')">The services</a>
+                            <a href="#home" onclick="showPage('home')">Home</a>
                         </li>
                         <li>
-                            <a onclick="showPage('plan')"
+                            <a href="#services" onclick="showPage('services')"
+                                >The services</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#plan" onclick="showPage('plan')"
                                 >Plan Your Adventure</a
                             >
                         </li>
-                        <li><a onclick="showPage('about')">About Us</a></li>
-                        <li><a onclick="showPage('blog')">Blog</a></li>
-                        <li><a onclick="showPage('contact')">Contact</a></li>
+                        <li>
+                            <a href="#about" onclick="showPage('about')"
+                                >About Us</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#blog" onclick="showPage('blog')">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#contact" onclick="showPage('contact')"
+                                >Contact</a
+                            >
+                        </li>
                     </ul>
                     <div class="mobile-menu" onclick="toggleMobileMenu()">
                         ☰
@@ -218,7 +232,7 @@
                         Rediscover the Carpathian Mountains in comfort, with
                         less weight, more joy, and unforgettable moments.
                     </p>
-                    <a href="#" class="btn" onclick="showPage('contact')"
+                    <a href="#contact" class="btn" onclick="showPage('contact')"
                         >Plan Your Adventure</a
                     >
                 </div>
@@ -266,7 +280,7 @@
                         Travel lighter, explore further, create memories that
                         last.
                     </p>
-                    <a href="#" class="btn" onclick="showPage('contact')"
+                    <a href="#contact" class="btn" onclick="showPage('contact')"
                         >Plan Your Adventure</a
                     >
                 </div>
@@ -512,7 +526,10 @@
                             Ready to start planning? Let's talk through your
                             route and build a custom plan.
                         </p>
-                        <a href="#" class="btn" onclick="showPage('contact')"
+                        <a
+                            href="#contact"
+                            class="btn"
+                            onclick="showPage('contact')"
                             >Contact Us</a
                         >
                     </div>
