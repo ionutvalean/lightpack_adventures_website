@@ -105,19 +105,34 @@ h6 {
     color: var(--white);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
     padding: 0.5rem 0.75rem;
     border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .nav-menu a:hover,
 .nav-menu a:focus {
-    color: var(--neutral);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.25);
+    color: var(--text);
 }
 
-.nav-menu a.nav-active,
+.nav-menu a.nav-active {
+    background: var(--cta);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.nav-menu a.nav-active:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 .logo.nav-active {
     color: var(--neutral);
     background-color: rgba(255, 255, 255, 0.15);
@@ -144,7 +159,7 @@ h6 {
 .hero {
     height: 100vh;
     background:
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
         url("../images/main_picture.webp");
     background-size: cover;
     background-position: center;
@@ -209,12 +224,6 @@ h6 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.btn:disabled {
-    background: var(--border);
-    cursor: not-allowed;
-    transform: none;
-}
-
 /* Page Sections */
 .page {
     display: none;
@@ -231,14 +240,19 @@ h6 {
 .hero-small {
     padding: 8rem 0 5rem;
     background:
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23658B73" width="1200" height="400"/><polygon fill="%234A6B56" points="0,400 400,200 800,300 1200,100 1200,400"/></svg>');
+        linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
+        url("../images/main_picture.webp");
     background-size: cover;
-    background-position: center;
-    text-align: center;
+    background-position: top;
+    background-repeat: no-repeat;
     color: var(--white);
+    text-align: center;
 }
-
+.hero-small .container {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 3rem 2rem;
+    border-radius: 10px;
+}
 .hero-small h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -265,8 +279,7 @@ h6 {
 .intro-image {
     width: 100%;
     height: 400px;
-    background-image:
-        url("../images/from_to.webp"), url("../images/from_to.png");
+    background-image: url("../images/from_to.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -782,17 +795,6 @@ img {
     border-top-color: var(--white);
     animation: spin 1s ease-in-out infinite;
     margin-left: 8px;
-}
-
-.spinner-small {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: var(--white);
-    animation: spin 1s ease-in-out infinite;
-    margin-left: 6px;
 }
 
 @keyframes spin {
