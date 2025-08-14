@@ -19,16 +19,7 @@
     --warning: #ffc107;
 }
 
-/* Preload critical font display */
-@font-face {
-    font-family: "Montserrat";
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Open Sans";
-    font-display: swap;
-}
+/* Font styles will be loaded via Google Fonts link in HTML */
 
 html,
 body {
@@ -92,13 +83,16 @@ h6 {
     font-size: 1.5rem;
     color: var(--white);
     text-decoration: none;
-    background-image: url("../images/logo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 50px;
-    height: 40px;
-    line-height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    min-width: 200px;
+    max-width: 250px;
+    object-fit: contain;
 }
 
 .nav-menu {
@@ -438,22 +432,13 @@ h6 {
 }
 
 .team-image {
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     margin: 0 auto 1rem;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.team-member:nth-child(1) .team-image {
-    background-image: url("../images/ionut-picture.webp");
-}
-
-.team-member:nth-child(2) .team-image {
-    background-image: url("../images/alina-picture.webp");
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 /* Pricing Table */
@@ -785,7 +770,6 @@ main {
 img {
     max-width: 100%;
     height: auto;
-    loading: lazy;
 }
 
 /* Loading Spinners */
