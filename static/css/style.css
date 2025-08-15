@@ -342,22 +342,16 @@ h6 {
     background-repeat: no-repeat;
 }
 
-.timing-coordination .service-card-image::before {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='white'%3E%3Ccircle cx='32' cy='32' r='28'/%3E%3Cpath d='M32 8v24l16 16' stroke='%23E5E2DD' stroke-width='3' fill='none'/%3E%3Ccircle cx='32' cy='32' r='3' fill='%23E5E2DD'/%3E%3C/svg%3E");
-    width: 80px;
-    height: 80px;
-    background-size: contain;
+.timing-coordination .service-card-image {
+    background: url("../images/your_time.webp");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.pack-light .service-card-image::before {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='white'%3E%3Cpath d='M12 20c0-4 4-8 8-8h24c4 0 8 4 8 8v28c0 4-4 8-8 8H20c-4 0-8-4-8-8V20z'/%3E%3Cpath d='M20 24h24v4H20zM20 32h16v4H20zM20 40h20v4H20z' fill='%23E5E2DD'/%3E%3Cpath d='M32 12v-8M24 12l-4-6M40 12l4-6' stroke='%23E5E2DD' stroke-width='2'/%3E%3C/svg%3E");
-    width: 80px;
-    height: 80px;
-    background-size: contain;
+.pack-light .service-card-image {
+    background: url("../images/light_pack.webp");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -369,42 +363,30 @@ h6 {
     background-repeat: no-repeat;
 }
 
-.gear-drops .service-card-image::before {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='white'%3E%3Cpath d='M8 16c0-4 4-8 8-8h32c4 0 8 4 8 8v32c0 4-4 8-8 8H16c-4 0-8-4-8-8V16z'/%3E%3Cpath d='M16 20h32v8H16zM16 32h32v8H16zM16 44h32v4H16z' fill='%23E5E2DD'/%3E%3Cpath d='M32 8l-4 8h8l-4-8zM20 32v-8M28 32v-8M36 32v-8M44 32v-8' stroke='%23E5E2DD' stroke-width='2'/%3E%3C/svg%3E");
-    width: 80px;
-    height: 80px;
-    background-size: contain;
+.gear-drops .service-card-image {
+    background: url("../images/your_gear.webp");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.porter-support .service-card-image::before {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='white'%3E%3Cellipse cx='32' cy='48' rx='8' ry='4'/%3E%3Cpath d='M32 44v-20c0-8-8-16-8-16s8 8 16 0c0 0-8 8-8 16v20'/%3E%3Ccircle cx='32' cy='16' r='6'/%3E%3Cpath d='M24 24c-4 0-8 4-8 8v16h8M40 24c4 0 8 4 8 8v16h-8' stroke='%23E5E2DD' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-    width: 80px;
-    height: 80px;
-    background-size: contain;
+.porter-support .service-card-image {
+    background: url("../images/porter.webp");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.logistics-support .service-card-image::before {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='white'%3E%3Cpath d='M8 40c0-4 4-8 8-8h32c4 0 8 4 8 8v8c0 4-4 8-8 8H16c-4 0-8-4-8-8v-8z'/%3E%3Ccircle cx='16' cy='44' r='6' fill='%23E5E2DD'/%3E%3Ccircle cx='48' cy='44' r='6' fill='%23E5E2DD'/%3E%3Cpath d='M20 32l8-8h8l8 8M32 8v16' stroke='%23E5E2DD' stroke-width='3' fill='none'/%3E%3Cpath d='M28 12h8M24 16h16' stroke='%23E5E2DD' stroke-width='2'/%3E%3C/svg%3E");
-    width: 80px;
-    height: 80px;
-    background-size: contain;
+.logistics-support .service-card-image {
+    background: url("../images/on-off_road.webp");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.overnight-support .service-card-image::before {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='white'%3E%3Cpath d='M8 44c0-4 4-8 8-8h32c4 0 8 4 8 8v8c0 4-4 8-8 8H16c-4 0-8-4-8-8v-8z'/%3E%3Cpath d='M16 44h32v8H16z' fill='%23E5E2DD'/%3E%3Cpath d='M20 32l4-8 4 4 4-8 4 4 4-8 4 4 4-8 4 8' stroke='%23E5E2DD' stroke-width='2' fill='none'/%3E%3Ccircle cx='32' cy='16' r='8' fill='%23FFD700'/%3E%3Cpath d='M24 24l16 8M40 24l-16 8' stroke='%23E5E2DD' stroke-width='2'/%3E%3C/svg%3E");
-    width: 80px;
-    height: 80px;
-    background-size: contain;
+.overnight-support .service-card-image {
+    background: url("../images/over_night.webp");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
