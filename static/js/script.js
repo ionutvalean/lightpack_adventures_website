@@ -84,8 +84,15 @@ function updateActiveNavigation(pageId) {
 function loadPageFromHash() {
   const hash = window.location.hash.substring(1); // Remove the '#'
   const validPages = ["home", "services", "plan", "about", "blog", "contact"];
+  const blogPosts = ["fagaras-ridge"];
 
-  if (hash && validPages.includes(hash)) {
+  // Check if hash is a blog post
+  if (hash && blogPosts.includes(hash)) {
+    showPage("blog", false);
+    setTimeout(() => {
+      showBlogPost(hash);
+    }, 100);
+  } else if (hash && validPages.includes(hash)) {
     showPage(hash, false); // Don't update history when loading from hash
   } else {
     showPage("home", false); // Default to home page
@@ -96,6 +103,54 @@ function loadPageFromHash() {
 window.addEventListener("hashchange", function () {
   loadPageFromHash();
 });
+
+// Blog post navigation functions
+function showBlogPost(postId) {
+  // Hide blog post list
+  const blogPosts = document.querySelector(".blog-posts");
+  const blogPost = document.getElementById(postId);
+
+  if (blogPosts && blogPost) {
+    blogPosts.style.display = "none";
+    blogPost.style.display = "block";
+
+    // Update URL hash for direct linking
+    if (window.location.hash !== "#" + postId) {
+      window.location.hash = postId;
+    }
+
+    // Scroll to top of blog post
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // Track blog post view
+    trackEvent("blog_post_view", {
+      post_id: postId,
+      post_title: blogPost.querySelector("h2")?.textContent || postId,
+    });
+  }
+}
+
+function showBlogList() {
+  // Show blog post list and hide individual posts
+  const blogPosts = document.querySelector(".blog-posts");
+  const blogPostFull = document.querySelectorAll(".blog-post-full");
+
+  if (blogPosts) {
+    blogPosts.style.display = "block";
+  }
+
+  blogPostFull.forEach((post) => {
+    post.style.display = "none";
+  });
+
+  // Update URL hash back to blog
+  if (window.location.hash !== "#blog") {
+    window.location.hash = "blog";
+  }
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
 // Mobile menu toggle
 function toggleMobileMenu() {
@@ -144,7 +199,7 @@ document
       email: document.getElementById("email").value,
       phone: document.getElementById("phone").value || "Not provided",
       route: document.getElementById("route").value,
-      weight: document.getElementById("weight").value,
+      weight: "NaN",
       requests: document.getElementById("requests").value || "None",
     };
 

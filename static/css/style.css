@@ -606,6 +606,344 @@ main {
     margin-top: auto;
 }
 
+.social-media {
+    margin-bottom: 1rem;
+}
+
+.social-media a {
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.social-media a:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+.social-media svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* Blog Styles */
+.blog-posts {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-post-preview {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.blog-post-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.blog-post-preview h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.blog-meta {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.blog-post-full {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.back-btn {
+    background: var(--secondary);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background: var(--primary);
+}
+
+.blog-article {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+}
+
+.blog-article h2 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-article h3 {
+    color: var(--primary);
+    margin: 2rem 0 1rem 0;
+    border-left: 4px solid var(--accent);
+    padding-left: 1rem;
+}
+
+.blog-article h4 {
+    color: var(--secondary);
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+.blog-intro {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    border-left: 4px solid var(--accent);
+}
+
+.trip-overview {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.day-summary {
+    background: var(--white);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+}
+
+.day-summary:last-child {
+    margin-bottom: 0;
+}
+
+.planning-section,
+.day-detail {
+    margin: 1.5rem 0;
+}
+
+.planning-section ul,
+.blog-article ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.planning-section li,
+.blog-article li {
+    margin-bottom: 0.5rem;
+}
+
+.trust-statement {
+    background: var(--accent);
+    /*color: var(--white);*/
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.trust-statement h4 {
+    /*color: var(--white);*/
+    margin-bottom: 1rem;
+}
+
+.cta-section {
+    background: var(--light);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.cta-section h4 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* Route Map Visualization */
+.route-map {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.route-map h4 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.route-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+}
+
+.checkpoint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-width: 120px;
+}
+
+.checkpoint::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.start-point::before {
+    background: var(--warning);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--warning);
+}
+
+.gear-point::before {
+    background: var(--primary);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+.end-point::before {
+    background: var(--secondary);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--secondary);
+}
+
+.checkpoint-label {
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.route-segment {
+    height: 4px;
+    min-width: 60px;
+    border-radius: 2px;
+    position: relative;
+}
+
+.route-segment::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+}
+
+.day1 {
+    background: linear-gradient(90deg, var(--warning), var(--primary));
+}
+
+.day1::after {
+    border-left-color: var(--primary);
+}
+
+.day2 {
+    background: var(--primary);
+}
+
+.day2::after {
+    border-left-color: var(--primary);
+}
+
+.day3 {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.day3::after {
+    border-left-color: var(--secondary);
+}
+
+.map-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-dot.start-point {
+    background: var(--warning);
+}
+
+.legend-dot.gear-point {
+    background: var(--primary);
+}
+
+.legend-dot.end-point {
+    background: var(--secondary);
+}
+
+.legend-line {
+    width: 20px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--secondary));
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .mobile-menu {
@@ -668,6 +1006,82 @@ main {
     .hero-small {
         padding: 6rem 0 3rem;
     }
+
+    .social-media a {
+        margin: 0 8px;
+    }
+
+    .social-media svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .blog-article {
+        padding: 2rem 1.5rem;
+    }
+
+    .blog-article h2 {
+        font-size: 2rem;
+    }
+
+    .trip-overview,
+    .blog-intro,
+    .trust-statement,
+    .cta-section {
+        padding: 1.5rem;
+    }
+
+    .day-summary {
+        padding: 1rem;
+    }
+
+    .route-line {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .route-segment {
+        width: 4px;
+        min-height: 40px;
+        min-width: auto;
+        transform: rotate(90deg);
+    }
+
+    .route-segment::after {
+        top: auto;
+        bottom: -5px;
+        right: 50%;
+        transform: translateX(50%) rotate(-90deg);
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 8px solid;
+        border-bottom: none;
+    }
+
+    .day1::after {
+        border-top-color: var(--primary);
+    }
+
+    .day2::after {
+        border-top-color: var(--secondary);
+    }
+
+    .day3::after {
+        border-top-color: var(--secondary);
+    }
+
+    .checkpoint-label {
+        font-size: 0.7rem;
+    }
+
+    .map-legend {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .route-map {
+        padding: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -710,7 +1124,7 @@ main {
 }
 
 .important::before {
-    content: "⚠️";
+    /*content: "⚠️";*/
     font-size: 1.5rem;
     margin-right: 0.75rem;
     vertical-align: middle;

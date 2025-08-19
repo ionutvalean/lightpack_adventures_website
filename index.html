@@ -541,6 +541,12 @@
                         staffing.
                     </p>
                 </div>
+                <div
+                    class="text-center"
+                    onclick="showBlogPost('fagaras-ridge')"
+                >
+                    <span class="btn">Example of service</span>
+                </div>
             </section>
         </div>
 
@@ -603,24 +609,493 @@
 
             <section class="section">
                 <div class="container">
-                    <div
-                        class="service-card"
-                        style="max-width: 600px; margin: 0 auto"
-                    >
-                        <h3>From Idea to Reality</h3>
-                        <p class="mb-2">
-                            How a challenging ridge traverse in the Făgăraș
-                            Mountains led to the creation of LightPack
-                            Carpathian Adventures. Read about our journey from
-                            carrying heavy packs to helping others travel light.
-                        </p>
-                        <a
-                            id="blogPost"
-                            href="#"
-                            class="btn"
-                            title="Comming soon"
-                            >Read More</a
+                    <!-- Blog Post List -->
+                    <div class="blog-posts">
+                        <div
+                            class="blog-post-preview"
+                            onclick="showBlogPost('fagaras-ridge')"
                         >
+                            <h3>
+                                From Balea to Turnu Rosu: The Western Fagaras
+                                Ridge
+                            </h3>
+                            <p class="blog-meta">
+                                3-day supported trek | Difficulty: Challenging |
+                                Distance: ~30km
+                            </p>
+                            <p>
+                                Discover how our gear support service transforms
+                                a demanding ridge traverse into a manageable
+                                adventure. Follow our detailed 3-day itinerary
+                                from Balea Lac to Turnu Rosu Monastery.
+                            </p>
+                            <span class="btn">Read Full Story</span>
+                        </div>
+                    </div>
+
+                    <!-- Full Blog Post (Initially Hidden) -->
+                    <div
+                        id="fagaras-ridge"
+                        class="blog-post-full"
+                        style="display: none"
+                    >
+                        <button onclick="showBlogList()" class="back-btn">
+                            ← Back to Blog
+                        </button>
+
+                        <article
+                            class="blog-article"
+                            id="fagaras-ridge-article"
+                        >
+                            <h2>
+                                From Balea to Turnu Rosu: The Western Part of
+                                the Fagaras Ridge
+                            </h2>
+                            <p class="blog-meta">
+                                A 3-day supported trekking adventure | Published
+                                January 2025
+                            </p>
+
+                            <div class="blog-intro">
+                                <p>
+                                    The Fagaras Mountains offer some of
+                                    Romania's most spectacular ridge walking,
+                                    but the logistics of carrying multiple days
+                                    of gear can turn an incredible adventure
+                                    into an exhausting burden. This is where
+                                    LightPack Adventures transforms your
+                                    experience - allowing you to focus on the
+                                    breathtaking views and challenging terrain
+                                    while we handle your heavy equipment.
+                                </p>
+                                <p>
+                                    <strong>Share this adventure:</strong> Use
+                                    the hashtag anchor
+                                    <code>#fagaras-ridge</code> to link directly
+                                    to this post, or share via social media with
+                                    the full URL.
+                                </p>
+                            </div>
+
+                            <h3>🗺️ The Plan: Strategic Gear Support Points</h3>
+
+                            <!-- Route Map Visualization -->
+                            <div class="route-map">
+                                <h4>Ridge Walking Route Overview</h4>
+                                <div class="map-container">
+                                    <div class="route-line">
+                                        <div
+                                            class="checkpoint start-point"
+                                            title="Balea Lac - Drop-off Point"
+                                        >
+                                            <span class="checkpoint-label"
+                                                >Day 1 Start<br />Balea Lac<br />🚗
+                                                (Drop-off)</span
+                                            >
+                                        </div>
+                                        <div class="route-segment day1"></div>
+                                        <div
+                                            class="checkpoint gear-point"
+                                            title="Caltun Lake - First Gear Cache"
+                                        >
+                                            <span class="checkpoint-label"
+                                                >Day 1 End<br />Caltun Lake<br />⛺
+                                                Gear Cache</span
+                                            >
+                                        </div>
+                                        <div class="route-segment day2"></div>
+                                        <div
+                                            class="checkpoint gear-point"
+                                            title="Avrig Lake - Second Gear Cache"
+                                        >
+                                            <span class="checkpoint-label"
+                                                >Day 2 End<br />Avrig Lake<br />⛺
+                                                Gear Cache</span
+                                            >
+                                        </div>
+                                        <div class="route-segment day3"></div>
+                                        <div
+                                            class="checkpoint end-point"
+                                            title="Turnu Rosu - Pickup Point"
+                                        >
+                                            <span class="checkpoint-label"
+                                                >Day 3 End<br />Turnu Rosu<br />🚗
+                                                Pickup</span
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="map-legend">
+                                        <div class="legend-item">
+                                            <span
+                                                class="legend-dot start-point"
+                                            ></span>
+                                            <span>Start Point (Drop-off)</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span
+                                                class="legend-dot gear-point"
+                                            ></span>
+                                            <span>Gear Support Points</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span
+                                                class="legend-dot end-point"
+                                            ></span>
+                                            <span>End Point (Pickup)</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-line"></span>
+                                            <span
+                                                >Ridge Walking Route (~30km
+                                                total)</span
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="trip-overview">
+                                <div class="day-summary">
+                                    <h4>Day 1: Balea Lac → Caltun Lake</h4>
+                                    <p>
+                                        <strong>Distance:</strong> ~12km |
+                                        <strong>Elevation:</strong> +600m, -400m
+                                    </p>
+                                    <p>
+                                        <strong>Your responsibility:</strong>
+                                        Hike with day pack (water, snacks,
+                                        safety gear)
+                                    </p>
+                                    <p>
+                                        <strong>Our responsibility:</strong>
+                                        Drop-off at Balea Lac + gear waiting at
+                                        Caltun Lake
+                                    </p>
+                                </div>
+
+                                <div class="day-summary">
+                                    <h4>Day 2: Caltun Lake → Avrig Lake</h4>
+                                    <p>
+                                        <strong>Distance:</strong> ~10km |
+                                        <strong>Elevation:</strong> +500m, -600m
+                                    </p>
+                                    <p>
+                                        <strong>Your responsibility:</strong>
+                                        Continue ridge traverse with day pack
+                                    </p>
+                                    <p>
+                                        <strong>Our responsibility:</strong>
+                                        Gear collection at Caltun + fresh
+                                        supplies at Avrig Lake
+                                    </p>
+                                </div>
+
+                                <div class="day-summary">
+                                    <h4>
+                                        Day 3: Avrig Lake → Turnu Rosu Monastery
+                                    </h4>
+                                    <p>
+                                        <strong>Distance:</strong> ~8km |
+                                        <strong>Elevation:</strong> +200m,
+                                        -1200m
+                                    </p>
+                                    <p>
+                                        <strong>Your responsibility:</strong>
+                                        Final descent with day pack
+                                    </p>
+                                    <p>
+                                        <strong>Our responsibility:</strong>
+                                        Gear collection + pickup at Turnu Rosu
+                                        Monastery
+                                    </p>
+                                </div>
+                            </div>
+
+                            <h3>📅 Timing & Coordination</h3>
+                            <div class="planning-section">
+                                <h4>Pre-Trip Planning (2 weeks before)</h4>
+                                <ul>
+                                    <li>
+                                        <strong>Weather Assessment:</strong> We
+                                        monitor conditions and suggest optimal
+                                        dates
+                                    </li>
+                                    <li>
+                                        <strong>Gear Check:</strong> Review your
+                                        equipment list and supplement what's
+                                        needed
+                                    </li>
+                                    <li>
+                                        <strong>Route Briefing:</strong>
+                                        Detailed discussion of the path,
+                                        waypoints, and emergency procedures
+                                    </li>
+                                    <li>
+                                        <strong>Drop-off Time:</strong>
+                                        Typically 7:00 AM at Balea Lac for
+                                        optimal hiking conditions
+                                    </li>
+                                </ul>
+
+                                <h4>Essential Gear Discussion</h4>
+                                <p><strong>What you carry daily:</strong></p>
+                                <ul>
+                                    <li>Lightweight day pack (20-30L)</li>
+                                    <li>
+                                        Water (2-3L), food, and snacks of your
+                                        choice
+                                    </li>
+                                    <li>
+                                        Weather protection (rain gear, extra
+                                        layer)
+                                    </li>
+                                    <li>
+                                        Navigation tools (map, GPS device,
+                                        phone) and emergency whistle
+                                    </li>
+                                    <li>
+                                        First aid basics and personal medication
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    <strong
+                                        >What we transport for you (to be
+                                        discussed, but as an example):</strong
+                                    >
+                                </p>
+                                <ul>
+                                    <li>
+                                        Tent, sleeping bag, and sleeping pad
+                                    </li>
+                                    <li>Cooking equipment and stove fuel</li>
+                                    <li>Main meals and cooking supplies</li>
+                                    <li>Extra clothing and toiletries</li>
+                                    <li>Emergency shelter and repair kit</li>
+                                </ul>
+                            </div>
+
+                            <h3>🏔️ The Adventure Unfolds</h3>
+
+                            <h4>Day 1: Balea Lac Drop-off</h4>
+                            <div class="day-detail">
+                                <p>
+                                    Your adventure begins at 7:00 AM when we
+                                    meet you at the agreed location and drive to
+                                    Balea Lac (2,034m). This iconic starting
+                                    point offers immediate immersion into the
+                                    high alpine environment. After a final gear
+                                    check and route briefing, you'll begin your
+                                    trek along the main Fagaras ridge.
+                                </p>
+
+                                <p>
+                                    The route starts with an introduction to the
+                                    most technical part of the ridge towards the
+                                    second biggest peak in Romania
+                                    <strong>Negoiu Peak</strong> (2,535m). It
+                                    continues westward along the spectacular
+                                    ridge line. The terrain is challenging but
+                                    well-marked (ridge, red line), with stunning
+                                    views of the Olt Valley to the north and the
+                                    Arges Valley to the south.
+                                </p>
+
+                                <p>
+                                    <strong>Trust Point:</strong> As you
+                                    approach Caltun Lake in the afternoon, your
+                                    tent, sleeping system, and dinner supplies
+                                    are already waiting in a weatherproof cache.
+                                    We've been there ahead of you, ensuring
+                                    everything is secure and ready.
+                                </p>
+                            </div>
+
+                            <h4>Day 2: The Heart of the western Ridge</h4>
+                            <div class="day-detail">
+                                <p>
+                                    While you sleep comfortably at Caltun Lake,
+                                    we quietly collect your previous day's cache
+                                    and begin preparing the next stage. You wake
+                                    refreshed, pack your day essentials, and
+                                    continue west along the ridge toward Avrig
+                                    Lake.
+                                </p>
+
+                                <p>
+                                    Today's route passes several significant
+                                    peaks including
+                                    <strong>Negoiu</strong>,
+                                    <strong>Serbota</strong>,
+                                    <strong>Scara</strong> and the well-known
+                                    <strong>Custura Saratii</strong>, with
+                                    optional detours if you see fit. The ridge
+                                    walking is spectacular, with 360-degree
+                                    mountain views and diverse alpine flora.
+                                </p>
+
+                                <p>
+                                    <strong>Trust Point:</strong> At Avrig Lake,
+                                    your fresh gear cache awaits - clean
+                                    clothes, restocked food supplies, and your
+                                    familiar camp setup. We maintain the highest
+                                    standards of reliability because we
+                                    understand that in the mountains, trust
+                                    isn't just about service - it's about
+                                    safety.
+                                </p>
+                            </div>
+
+                            <h4>Day 3: Descent to Turnu Rosu</h4>
+                            <div class="day-detail">
+                                <p>
+                                    Your final day involves the descent from the
+                                    high ridge to Turnu Rosu Monastery. Before
+                                    this, <strong>Budislavu</strong> and
+                                    <strong>Suru</strong> peaks great you with
+                                    stunning views. This is typically the most
+                                    straightforward day in terms of navigation
+                                    and difficulty, following well-established
+                                    trails down from the alpine meadows, through
+                                    diverse forest zones.
+                                </p>
+
+                                <p>
+                                    The descent offers a completely different
+                                    perspective - from alpine lakes and rocky
+                                    peaks to ancient forests and eventually the
+                                    historic monastery setting. It's a perfect
+                                    conclusion that showcases the incredible
+                                    diversity of the Carpathian landscape.
+                                </p>
+
+                                <p>
+                                    <strong>Trust Point:</strong> We're waiting
+                                    at Turnu Rosu Monastery at the agreed time
+                                    (typically in the afternoon). Your transport
+                                    back to Sibiu is ready, along with cold
+                                    drinks and a debrief of your incredible
+                                    journey.
+                                </p>
+                            </div>
+
+                            <h3>🤝 Partnership in the Mountains</h3>
+
+                            <h4>Your Responsibilities</h4>
+                            <ul>
+                                <li>
+                                    <strong>Physical Preparation:</strong>
+                                    Ensure you're fit for multi-day ridge
+                                    walking
+                                </li>
+                                <li>
+                                    <strong>Weather Awareness:</strong>
+                                    Understand mountain weather patterns and
+                                    risks
+                                </li>
+                                <li>
+                                    <strong>Navigation Skills:</strong> Basic
+                                    map and compass/GPS competency
+                                </li>
+                                <li>
+                                    <strong>Communication:</strong> Carry
+                                    emergency communication device
+                                </li>
+                                <li>
+                                    <strong>Flexibility:</strong> Adapt to
+                                    weather or route changes as needed
+                                </li>
+                                <li>
+                                    <strong>Respect:</strong> Leave no trace
+                                    principles and respect for local regulations
+                                </li>
+                            </ul>
+
+                            <h4>Our Commitments</h4>
+                            <ul>
+                                <li>
+                                    <strong>Reliability:</strong> Your gear will
+                                    be where and when promised, guaranteed
+                                </li>
+                                <li>
+                                    <strong>Quality:</strong> All transported
+                                    equipment meets high mountain standards
+                                </li>
+                                <li>
+                                    <strong>Safety Backup:</strong> Emergency
+                                    support plan and communication monitoring
+                                </li>
+                                <li>
+                                    <strong>Local Knowledge:</strong> Current
+                                    conditions, route updates, and alternatives
+                                </li>
+                                <li>
+                                    <strong>Flexibility:</strong> Adapt support
+                                    points if weather or conditions require
+                                    changes
+                                </li>
+                                <li>
+                                    <strong>Transparency:</strong> Clear
+                                    communication about logistics, costs, and
+                                    expectations
+                                </li>
+                            </ul>
+
+                            <div class="trust-statement important">
+                                <h4>Building Trust Through Experience</h4>
+                                <p>
+                                    Every LightPack adventure is built on mutual
+                                    trust. You trust us to be where we say we'll
+                                    be, when we say we'll be there, with the
+                                    gear you need to safely complete your
+                                    journey. We trust you to be prepared,
+                                    responsible, and honest about your
+                                    capabilities and needs.
+                                </p>
+
+                                <p>
+                                    This partnership allows both of us to focus
+                                    on what we do best: you experience the
+                                    incredible freedom of ridge walking without
+                                    heavy packs, while we ensure seamless
+                                    logistics that make your adventure possible.
+                                </p>
+                            </div>
+
+                            <h3>🌟 Why This Approach Works</h3>
+                            <p>
+                                Traditional backpacking often means carrying
+                                15-20kg for multi-day trips. With LightPack
+                                support, you carry just 5-8kg daily while still
+                                experiencing the full adventure and challenge of
+                                the Fagaras ridge. This isn't about making the
+                                mountains easier - it's about making them
+                                accessible and enjoyable while maintaining the
+                                authentic mountain experience.
+                            </p>
+
+                            <div class="cta-section">
+                                <h4>Ready for Your Fagaras Adventure?</h4>
+                                <p>
+                                    This trip runs from June through September,
+                                    with optimal conditions typically in July
+                                    and August. Each group is limited to 4-6
+                                    people to ensure personalized service and
+                                    minimal environmental impact.
+                                </p>
+                                <p>
+                                    <strong>Hashtag anchor:</strong>
+                                    <code>#fagaras-ridge</code> - Perfect for
+                                    sharing this specific trip example!
+                                </p>
+                                <a
+                                    href="#contact"
+                                    class="btn"
+                                    onclick="showPage('contact')"
+                                    >Plan Your Trip</a
+                                >
+                            </div>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -676,7 +1151,7 @@
                                     placeholder="Tell us about your planned route, dates, and any specific requirements..."
                                 ></textarea>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="weight"
                                     >Approx. Gear Weight (kg) *</label
                                 >
@@ -686,7 +1161,7 @@
                                     name="weight"
                                     required
                                 />
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="requests"
                                     >Any Special Requests</label
@@ -709,7 +1184,7 @@
                         </form>
 
                         <div class="contact-info">
-                            <h3>Base of Operations</h3>
+                            <h3>Direct Contact</h3>
                             <div class="contact-details">
                                 <p><strong>Sibiu, Romania</strong></p>
                                 <p>
@@ -734,6 +1209,39 @@
                                         >contact@lightpackadventures.com</a
                                     >
                                 </p>
+                            </div>
+
+                            <div class="social-media">
+                                <a
+                                    href="https://www.instagram.com/lightpackadventures/"
+                                    target="_blank"
+                                    title="LightPack Adventures on Instagram"
+                                    rel="noopener noreferrer"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        style="fill: var(--primary)"
+                                    >
+                                        <path
+                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                                        />
+                                    </svg>
+                                </a>
+                                <a
+                                    href="https://www.facebook.com/lightpackadventures"
+                                    target="_blank"
+                                    title="LightPack Adventures on Facebook"
+                                    rel="noopener noreferrer"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        style="fill: var(--primary)"
+                                    >
+                                        <path
+                                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                                        />
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -810,6 +1318,32 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
+                <div class="social-media">
+                    <a
+                        href="https://www.instagram.com/lightpackadventures/"
+                        target="_blank"
+                        title="LightPack Adventures on Instagram"
+                        rel="noopener noreferrer"
+                    >
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/lightpackadventures"
+                        target="_blank"
+                        title="LightPack Adventures on Facebook"
+                        rel="noopener noreferrer"
+                    >
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                            />
+                        </svg>
+                    </a>
+                </div>
                 <p>
                     <b>&copy; 2025 LightPack Carpathian Adventures</b>. All
                     rights reserved.
