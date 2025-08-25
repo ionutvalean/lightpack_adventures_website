@@ -84,7 +84,7 @@ function updateActiveNavigation(pageId) {
 function loadPageFromHash() {
   const hash = window.location.hash.substring(1); // Remove the '#'
   const validPages = ["home", "services", "plan", "about", "blog", "contact"];
-  const blogPosts = ["fagaras-ridge"];
+  const blogPosts = ["fagaras-ridge", "via-transilvanica"];
 
   // Check if hash is a blog post
   if (hash && blogPosts.includes(hash)) {
@@ -143,6 +143,26 @@ function showBlogList() {
     post.style.display = "none";
   });
 
+  // Reset filters to show all posts
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const blogPostPreviews = document.querySelectorAll(".blog-post-preview");
+
+  // Reset active filter button to "All Posts"
+  filterButtons.forEach((btn) => btn.classList.remove("active"));
+  const allPostsButton = document.querySelector(
+    '.filter-btn[data-filter="all"]',
+  );
+  if (allPostsButton) {
+    allPostsButton.classList.add("active");
+  }
+
+  // Show all blog posts
+  blogPostPreviews.forEach((post) => {
+    post.classList.remove("hidden");
+    post.classList.add("visible");
+    post.style.display = "block";
+  });
+
   // Update URL hash back to blog
   if (window.location.hash !== "#blog") {
     window.location.hash = "blog";
@@ -150,6 +170,94 @@ function showBlogList() {
 
   // Scroll to top
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// Ensure proper blog post visibility on page load
+function ensureBlogPostVisibility() {
+  const blogPosts = document.querySelector(".blog-posts");
+  const blogPostFull = document.querySelectorAll(".blog-post-full");
+  const blogPostPreviews = document.querySelectorAll(".blog-post-preview");
+
+  // Hide all full blog posts by default
+  blogPostFull.forEach((post) => {
+    if (!post.style.display || post.style.display !== "block") {
+      post.style.display = "none";
+    }
+  });
+
+  // If we're on the blog page and no specific post is shown, ensure blog list is visible
+  if (document.getElementById("blog").style.display === "block") {
+    const anyPostVisible = Array.from(blogPostFull).some(
+      (post) => post.style.display === "block",
+    );
+
+    if (!anyPostVisible && blogPosts) {
+      blogPosts.style.display = "block";
+      // Make sure all blog post previews are visible
+      blogPostPreviews.forEach((post) => {
+        post.classList.remove("hidden");
+        post.classList.add("visible");
+        post.style.display = "block";
+      });
+    }
+  }
+}
+
+// Blog filtering functionality
+function initializeBlogFilters() {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const blogPosts = document.querySelectorAll(".blog-post-preview");
+
+  // Ensure all posts are visible by default
+  blogPosts.forEach((post) => {
+    post.classList.remove("hidden");
+    post.classList.add("visible");
+  });
+
+  // Ensure "All Posts" button is active by default
+  filterButtons.forEach((btn) => btn.classList.remove("active"));
+  const allPostsButton = document.querySelector(
+    '.filter-btn[data-filter="all"]',
+  );
+  if (allPostsButton) {
+    allPostsButton.classList.add("active");
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.getAttribute("data-filter");
+
+      // Update active button
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      // Filter posts
+      filterBlogPosts(filter, blogPosts);
+
+      // Track filter usage
+      trackEvent("blog_filter_used", {
+        filter: filter,
+        posts_shown: document.querySelectorAll(".blog-post-preview.visible")
+          .length,
+      });
+    });
+  });
+}
+
+function filterBlogPosts(filter, posts) {
+  posts.forEach((post) => {
+    const postType = post.getAttribute("data-type");
+
+    if (filter === "all" || postType === filter) {
+      post.classList.remove("hidden");
+      post.classList.add("visible");
+      post.style.display = "block";
+    } else {
+      post.classList.remove("visible");
+      post.classList.add("hidden");
+      post.style.display = "none";
+    }
+  });
 }
 
 // Mobile menu toggle
@@ -692,6 +800,12 @@ function saveSettings() {
 document.addEventListener("DOMContentLoaded", function () {
   // Load the correct page based on URL hash
   loadPageFromHash();
+
+  // Ensure proper blog post visibility
+  setTimeout(() => {
+    ensureBlogPostVisibility();
+    initializeBlogFilters();
+  }, 100);
 
   // Handle navigation link clicks
   const navLinks = document.querySelectorAll('a[href^="#"]');
