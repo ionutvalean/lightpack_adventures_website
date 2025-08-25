@@ -84,7 +84,11 @@ function updateActiveNavigation(pageId) {
 function loadPageFromHash() {
   const hash = window.location.hash.substring(1); // Remove the '#'
   const validPages = ["home", "services", "plan", "about", "blog", "contact"];
-  const blogPosts = ["fagaras-ridge", "via-transilvanica"];
+  const blogPosts = [
+    "fagaras-ridge",
+    "via-transilvanica",
+    "transfagarasan-transalpina",
+  ];
 
   // Check if hash is a blog post
   if (hash && blogPosts.includes(hash)) {
@@ -257,6 +261,117 @@ function filterBlogPosts(filter, posts) {
       post.classList.add("hidden");
       post.style.display = "none";
     }
+  });
+}
+
+// Blog sharing functionality
+function copyBlogLink(postId) {
+  const currentUrl = window.location.origin + window.location.pathname;
+  const blogUrl = currentUrl + "#" + postId;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    // Use modern clipboard API
+    navigator.clipboard
+      .writeText(blogUrl)
+      .then(() => {
+        showCopyFeedback("Link copied to clipboard!");
+      })
+      .catch(() => {
+        fallbackCopyLink(blogUrl);
+      });
+  } else {
+    fallbackCopyLink(blogUrl);
+  }
+
+  // Track copy link usage
+  trackEvent("blog_share", {
+    post_id: postId,
+    share_method: "copy_link",
+    url: blogUrl,
+  });
+}
+
+function fallbackCopyLink(text) {
+  // Fallback for older browsers
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.left = "-999999px";
+  textArea.style.top = "-999999px";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    document.execCommand("copy");
+    showCopyFeedback("Link copied to clipboard!");
+  } catch (err) {
+    showCopyFeedback("Please copy the link manually: " + text);
+  }
+
+  document.body.removeChild(textArea);
+}
+
+function showCopyFeedback(message) {
+  // Create or update feedback element
+  let feedback = document.getElementById("copy-feedback");
+  if (!feedback) {
+    feedback = document.createElement("div");
+    feedback.id = "copy-feedback";
+    feedback.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--cta);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 5px;
+      z-index: 1000;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+    `;
+    document.body.appendChild(feedback);
+  }
+
+  feedback.textContent = message;
+  feedback.style.transform = "translateX(0)";
+
+  setTimeout(() => {
+    feedback.style.transform = "translateX(400px)";
+  }, 3000);
+}
+
+function shareBlogPost(postId, platform) {
+  const currentUrl = window.location.origin + window.location.pathname;
+  const blogUrl = encodeURIComponent(currentUrl + "#" + postId);
+  const blogTitle = encodeURIComponent(
+    document.querySelector(`#${postId} h2`)?.textContent ||
+      "LightPack Adventures Blog",
+  );
+
+  let shareUrl = "";
+
+  switch (platform) {
+    case "facebook":
+      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${blogUrl}`;
+      break;
+    case "twitter":
+      shareUrl = `https://twitter.com/intent/tweet?url=${blogUrl}&text=${blogTitle}`;
+      break;
+  }
+
+  if (shareUrl) {
+    // Update the href before the link is clicked
+    event.currentTarget.href = shareUrl;
+  }
+
+  // Track social media sharing
+  trackEvent("blog_share", {
+    post_id: postId,
+    share_method: platform,
+    url: decodeURIComponent(blogUrl),
   });
 }
 
